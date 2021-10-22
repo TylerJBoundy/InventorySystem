@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1438670258cbba4689ea9d21054a040, type: 3}
+  m_Name: temple_dungeon_key
+  m_EditorClassIdentifier: 
+  itemId: temple_dungeon_key
+  itemName: Temple Dungeon Key
+  itemDescription: The key to a temple dungeon (with big monsters and that) **ooooooo**
+  itemType: 2
+  itemBuyPrice: 0
+  itemSellPrice: 0
+  primaryStat: 0
+  secondaryStat: 0
+  effectId: 

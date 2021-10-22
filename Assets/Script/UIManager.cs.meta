@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 441dd3935177b0d45bb2130ae8d51efe
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - prefItemPopup: {fileID: 3469675768587827235, guid: fc206f0cace1d0e48b5940cb2d5097a4,
+      type: 3}
+  - brokenIcon: {fileID: 21300000, guid: 3bf7b9e8a9740e54bb9cccf98da5f5d9, type: 3}
+  - swordIcon: {fileID: 21300000, guid: 3c9ef2644eca8a04f92b1cf2fc3722fd, type: 3}
+  - armourIcon: {fileID: 21300000, guid: 338a0f7cf69d27548960365548282eb2, type: 3}
+  - shieldIcon: {fileID: 21300000, guid: 5c0fb88a4c77c0047be58cd10d141390, type: 3}
+  - generalIcon: {fileID: 21300000, guid: 2c2d961987408dc46989386c8073ad33, type: 3}
+  - foodIcon: {fileID: 21300000, guid: 25ec8c0389818e44e8a1cb392a921615, type: 3}
+  - potionIcon: {fileID: 21300000, guid: f26db39c491b3e34d9c408777c838e4a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
