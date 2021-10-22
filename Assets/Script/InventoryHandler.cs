@@ -20,6 +20,11 @@ public class InventoryHandler : MonoBehaviour
         items = FindObjectOfType<Items>();
     }
 
+    /// <summary>
+    /// Finds an itemType relative to an itemID.
+    /// </summary>
+    /// <param name="itemId">The itemID to check for.</param>
+    /// <returns>The itemType relative to itemID.</returns>
     public ItemType DeterminItemType(string itemId)
     {
         if (DeterminItem(itemId) != null)
@@ -28,6 +33,11 @@ public class InventoryHandler : MonoBehaviour
             return ItemType.None;
     }
 
+    /// <summary>
+    /// Finds an item relative to an itemID.
+    /// </summary>
+    /// <param name="itemId">The itemID to check for.</param>
+    /// <returns>An item relative to itemID.</returns>
     public Item DeterminItem(string itemId)
     {
         Item correctItem = null;
@@ -41,6 +51,11 @@ public class InventoryHandler : MonoBehaviour
         return correctItem;
     }
 
+    /// <summary>
+    /// Checks the inventory for an item.
+    /// </summary>
+    /// <param name="itemId">The itemId of the item to check for.</param>
+    /// <returns>The amount of said item.</returns>
     public int CheckHowManyItemsInInventory(string itemId)
     {
         int amountOfItems = 0;
@@ -58,6 +73,10 @@ public class InventoryHandler : MonoBehaviour
         return amountOfItems;
     }
 
+    /// <summary>
+    /// Adds an item.
+    /// </summary>
+    /// <param name="itemId">The item to add.</param>
     public void AddItem(string itemId)
     {
         ItemIds inventory = JsonUtility.FromJson<ItemIds>(player.jsonInventory);
@@ -66,6 +85,11 @@ public class InventoryHandler : MonoBehaviour
 
         if (OnItemAddedToInventory != null) OnItemAddedToInventory(itemId);
     }
+
+    /// <summary>
+    /// Removes items.
+    /// </summary>
+    /// <param name="itemListing">The item to remove.</param>
     public void RemoveItem(Text itemListing)
     {
         string itemId = itemListing.text;
@@ -83,6 +107,11 @@ public class InventoryHandler : MonoBehaviour
 
         RemoveOneItem(itemListing);
     }
+
+    /// <summary>
+    /// Removes 1 item.
+    /// </summary>
+    /// <param name="itemListing">The item to remove.</param>
     public void RemoveOneItem(Text itemListing)
     {
         string itemId = itemListing.text;
@@ -94,6 +123,11 @@ public class InventoryHandler : MonoBehaviour
 
         if (OnItemRemovedFromInventory != null) OnItemRemovedFromInventory(itemId);
     }
+
+    /// <summary>
+    /// Removes a bulk amount of items.
+    /// </summary>
+    /// <param name="itemListing">The item to remove.</param>
     public void RemoveItemBulk(Text itemListing)
     {
         string itemId = itemListing.text;
@@ -126,6 +160,11 @@ public class InventoryHandler : MonoBehaviour
         if (OnItemRemovedFromInventory != null) OnItemRemovedFromInventory(itemId);
     }
 
+    /// <summary>
+    /// Checks for the item.
+    /// </summary>
+    /// <param name="itemId">Item to check for.</param>
+    /// <returns>True if the item was found. False if the item was not found.</returns>
     public bool CheckForItem(string itemId)
     {
         ItemIds inventory = JsonUtility.FromJson<ItemIds>(player.jsonInventory);
@@ -140,12 +179,20 @@ public class InventoryHandler : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Equips the item.
+    /// </summary>
+    /// <param name="itemListing">Item to equip.</param>
     public void EquipItem(Text itemListing)
     {
         string itemId = itemListing.text;
         Debug.LogWarning("Equiping " + itemId);
     }
 
+    /// <summary>
+    /// Uses the item.
+    /// </summary>
+    /// <param name="itemListing">The item to use.</param>
     public void UseItem(Text itemListing)
     {
         string itemId = itemListing.text;
