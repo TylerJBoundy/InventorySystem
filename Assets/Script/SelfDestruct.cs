@@ -5,12 +5,10 @@ using UnityEngine;
 public class SelfDestruct : MonoBehaviour
 {
     public float timer;
-    void Start()
-    {
-        StartCoroutine(KillSelf());
-    }
 
-    IEnumerator KillSelf()
+    void Start() => StartCoroutine(StartTimer());
+
+    IEnumerator StartTimer()
     {
         yield return new WaitForSeconds(timer);
         Destroy(transform.gameObject);

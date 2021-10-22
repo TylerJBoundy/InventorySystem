@@ -17,19 +17,10 @@ public class UIManager : MonoBehaviour
 
     [Space]
     [Header("Item Type Icons")]
-    [SerializeField] private Sprite brokenIcon;
-    [SerializeField] private Sprite swordIcon;
-    [SerializeField] private Sprite armourIcon;
-    [SerializeField] private Sprite shieldIcon;
-    [SerializeField] private Sprite generalIcon;
-    [SerializeField] private Sprite foodIcon;
-    [SerializeField] private Sprite potionIcon;
-    [SerializeField] private Sprite toolIcon;
-    [SerializeField] private Sprite questIcon;
+    [SerializeField] private Sprite brokenIcon, swordIcon, armourIcon, shieldIcon, generalIcon, foodIcon, potionIcon, toolIcon, questIcon;
 
     [Space]
-    private GameObject itemTemplate;
-    private GameObject itemTemplate2;
+    private GameObject itemTemplate, itemTemplate2;
 
     [SerializeField] private bool hasItemSelected=false;
     [SerializeField] private string selectedItem="";
@@ -55,6 +46,12 @@ public class UIManager : MonoBehaviour
         RefreshInventory();
     }
 
+    /// <summary>
+    /// Sets the icon of an item.
+    /// </summary>
+    /// <param name="item">The item.</param>
+    /// <param name="icon">The icon.</param>
+    /// <returns>True if item was found. False if item was not found.</returns>
     private bool SetItemIcon(Item item, Image icon)
     {
         bool foundItem = false;
@@ -107,6 +104,9 @@ public class UIManager : MonoBehaviour
         RefreshInventory();
     }
 
+    /// <summary>
+    /// Refreshes the UI of the inventory.
+    /// </summary>
     public void RefreshInventory()
     {
         //Clearing current Inventory UI
@@ -156,6 +156,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Adds a new item template to the inventory list.
+    /// </summary>
+    /// <param name="itemId">The itemID of the item.</param>
+    /// <param name="amountOfItems">The amount of items to add.</param>
     private void AddItemListing(string itemId, int amountOfItems)
     {
         if (player.GetComponent<InventoryHandler>().DeterminItemType(itemId) == ItemType.General ||
@@ -170,6 +175,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Creates a new UI item.
+    /// </summary>
+    /// <param name="template">Which template to use.</param>
+    /// <param name="itemId">The itemID of the item.</param>
+    /// <param name="amountOfItems">The amount of said item.</param>
+    /// <param name="stackable">If the item is stackable or not.</param>
     private void CreateNewItemListing(GameObject template, string itemId, int amountOfItems, bool stackable)
     {
         //Decoding inventory
@@ -203,7 +215,10 @@ public class UIManager : MonoBehaviour
         newItem.SetActive(true);
     }
 
-    //Details Panel
+    /// <summary>
+    /// Shows all the relative information for an item in the details panel.
+    /// </summary>
+    /// <param name="itemSelected">The item UI component.</param>
     public void ItemSelected(GameObject itemSelected)
     {
         //Gets itemId from Item Listing name
@@ -228,6 +243,11 @@ public class UIManager : MonoBehaviour
             ShowDetailsPanel(itemId);
         }
     }
+
+    /// <summary>
+    /// Shows the details panel.
+    /// </summary>
+    /// <param name="itemId">The item to show.</param>
     public void ShowDetailsPanel(string itemId)
     {
         //Displays details panel
@@ -300,6 +320,10 @@ public class UIManager : MonoBehaviour
         panel.Find("Description/ItemId").GetComponent<Text>().text = itemId;
         panel.gameObject.SetActive(true);
     }
+
+    /// <summary>
+    /// Hides the details panel.
+    /// </summary>
     public void HideDetailsPanel()
     {
         //Disables details panel and disables all itemType variants
@@ -311,7 +335,7 @@ public class UIManager : MonoBehaviour
         detailsPanel.Find("AreaBox/Item/Potion").gameObject.SetActive(false);
     }
 
-    //Debugging
+    #region Debugging
     public void GiveItem(InputField inputField)
     {
         string itemId = inputField.text;
@@ -348,4 +372,5 @@ public class UIManager : MonoBehaviour
         dropAmountPanel.Find("AreaBox/Description/Amount").GetComponent<Text>().text
             = player.GetComponent<InventoryHandler>().dropAmount.ToString();
     }
+    #endregion
 }
